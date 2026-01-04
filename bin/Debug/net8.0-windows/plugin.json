@@ -1,0 +1,15 @@
+{
+  "ID": "A1B2C3D4E5F64A7B8C9D0E1F2A3B4C5D",
+  "ActionKeyword": "###",
+  "IsGlobal": false,
+  "Name": "ElevenLabs TTS",
+  "Description": "ElevenLabs Text-to-Speech Plugin",
+  "Author": "ElevenLabs",
+  "Version": "1.0.0",
+  "Language": "csharp",
+  "Website": "https://elevenlabs.io",
+  "IcoPathDark": "Images\\elevenlabs.png",
+  "IcoPathLight": "Images\\elevenlabs.png",
+  "ExecuteFileName": "ElevenLabs.dll",
+  "DynamicLoading": false
+}

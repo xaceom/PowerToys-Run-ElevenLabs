@@ -1,0 +1,5 @@
+D:\Projects\Plugins\Powertoys\Elevenlabs\obj\x64\Debug\net8.0-windows\ElevenLabs.csproj.AssemblyReference.cache
+D:\Projects\Plugins\Powertoys\Elevenlabs\obj\x64\Debug\net8.0-windows\ElevenLabs.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Plugins\Powertoys\Elevenlabs\obj\x64\Debug\net8.0-windows\ElevenLabs.AssemblyInfoInputs.cache
+D:\Projects\Plugins\Powertoys\Elevenlabs\obj\x64\Debug\net8.0-windows\ElevenLabs.AssemblyInfo.cs
+D:\Projects\Plugins\Powertoys\Elevenlabs\obj\x64\Debug\net8.0-windows\ElevenLabs.csproj.CoreCompileInputs.cache

@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <AssemblyName>ElevenLabs</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <NugetPackagesDir Condition="'$(NugetPackagesDir)' == ''">$(USERPROFILE)\.nuget\packages</NugetPackagesDir>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Community.PowerToys.Run.Plugin.Dependencies" Version="0.82.1" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- Explicit references to DLLs from the PowerToys package -->
+  <ItemGroup>
+    <Reference Include="Wox.Plugin">
+      <HintPath>$(NugetPackagesDir)\community.powertoys.run.plugin.dependencies\0.82.1\tools\x64\Wox.Plugin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Wox.Infrastructure">
+      <HintPath>$(NugetPackagesDir)\community.powertoys.run.plugin.dependencies\0.82.1\tools\x64\Wox.Infrastructure.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PowerToys.Common.UI">
+      <HintPath>$(NugetPackagesDir)\community.powertoys.run.plugin.dependencies\0.82.1\tools\x64\PowerToys.Common.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PowerToys.ManagedCommon">
+      <HintPath>$(NugetPackagesDir)\community.powertoys.run.plugin.dependencies\0.82.1\tools\x64\PowerToys.ManagedCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PowerToys.Settings.UI.Lib">
+      <HintPath>$(NugetPackagesDir)\community.powertoys.run.plugin.dependencies\0.82.1\tools\x64\PowerToys.Settings.UI.Lib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="plugin.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Automatic plugin copying to PowerToys folder after build -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <PropertyGroup>
+      <PluginDir>$(LOCALAPPDATA)\Microsoft\PowerToys\PowerToys Run\Plugins\ElevenLabs</PluginDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <PluginOutputFiles Include="$(TargetDir)**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PluginOutputFiles)" DestinationFolder="$(PluginDir)\%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Message Text="Plugin copied to $(PluginDir)" Importance="high" />
+  </Target>
+
+</Project>

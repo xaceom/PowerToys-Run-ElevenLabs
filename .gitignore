@@ -1,0 +1,23 @@
+## [Bb]in/
+[Ob]j/
+*.user
+*.userosscache
+*.sln.docstates
+
+## VS Code
+.vscode/
+
+## Settings (CRITICAL: Do not publish your API key!)
+settings.json
+
+## PowerToys local deployment path artifacts
+PowerToys Run/
+
+## macOS
+.DS_Store
+
+## Cursor
+.cursorignore
+.cursorrules
+.cursorignore   
+/.cursor
