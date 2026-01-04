@@ -25,7 +25,7 @@ namespace ElevenLabs
         private ElevenLabsService? _elevenLabsService;
         private AudioPlayer? _audioPlayer;
 
-        public string Name => "ElevenLabs TTS";
+        public string Name => "ElevenLabs";
         public string Description => "Text-to-Speech using ElevenLabs API";
 
         public IEnumerable<PluginAdditionalOption> AdditionalOptions => new List<PluginAdditionalOption>
@@ -93,7 +93,7 @@ namespace ElevenLabs
             {
                 Title = "Speak text",
                 SubTitle = searchText,
-                IcoPath = "Images\\elevenlabs.png",
+                IcoPath = "Images\\elevenlabs.light.png",
                 Action = (e) =>
                 {
                     Task.Run(async () =>
